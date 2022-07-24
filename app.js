@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/",function(req,res){
     app.use(express.static("public"));
-    res.sendFile('index.html',{root:__dirname});
+    res.sendFile(__dirname+"/index.html");
 });
 app.post("/",function(req,res){
     const query = req.body.cityName;

@@ -6,7 +6,7 @@ const port=3000 ||process.env.PORT
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/",function(req,res){
-   
+    app.use(express.static("public"));
     res.sendFile('index.html',{root:__dirname});
 });
 app.post("/",function(req,res){
@@ -24,7 +24,7 @@ https.get(url,function(response){
     const imageURL = " http://openweathermap.org/img/wn/"+icon+"@2x.png";
     res.write("<h1> The weather of "+query+" is " +weatherDescription+ ".</h1>");
     res.write("<h1>The temperature is:" +temp+ " degree Celcius.</h1>");
-    res.write("<img src=" +imageURL+ ">");
+    res.write("<img  src=" +imageURL+ ">");
     res.send()
  });
 });
